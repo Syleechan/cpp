@@ -1,7 +1,7 @@
 /* -->Work Hard!<-- */
  /// @File->    Point2.cc
  /// @Author->  Sy_leechan(lcxtzx2010@163.com)
- /// @Date->    2018-04-11 05:31:32
+ /// @Date->    2018-04-12 06:00:57
 /* -->Work Hard!<-- */
  
 #include <iostream>
@@ -11,62 +11,33 @@ using std::endl;
 class Point
 {
 public:
-	Point()
-	: _ix(0)
-	, _iy(0)
-	{
-		_ix = 0;
-		_iy = 0;
-		cout << "Point()" << endl;
-	}
-
-	Point(int ix,int iy = 0)
+	Point(int ix, int iy)
 	: _ix(ix)
-	, _iy(iy)
-	{
-		cout << "Point(int,int)" << endl;
-		_ix = ix;
-		_iy = iy;
+	, _iy(iy)//常量成员必须要放在初始化列表之中
+	{//不可放在函数内
 	}
 
 	void print()
 	{
-		cout << "(" << _ix << "," << _iy << ")" << endl;
-	}
-
-	~Point()
-	{
-		cout << "~Point()" << endl;
+		cout << "(" << _ix
+			 << "," << _iy
+			 << ")" << endl;
 	}
 
 private:
-
-	int _ix;
-	int _iy;
+	const int _ix;
+	const int _iy;
 
 };
 
-int test_0()
-{
-	int a(1);
-	cout << "a = " << a << endl;
-	Point pt1(1, 2);
-	pt1.print();
-
-	Point pt2;
-	pt2.print();
-
-	Point pt3(3);
-	pt3.print();
-
-	return 0;
-
-}
-
 int main()
 {
-	test_0();
+	Point pt(1, 2);
+	pt.print();
+
 	return 0;
 
 }
+
+
 
